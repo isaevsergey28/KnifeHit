@@ -8,7 +8,7 @@ public class BreakingAppleCount : MonoBehaviour
 {
     private TextMeshProUGUI _appleCountText;
     private int _appleCount;
-    private string _appleScore = "AppleScore";
+    private string _appleScoreKey = "AppleScore";
     
     private void Start()
     {
@@ -20,19 +20,19 @@ public class BreakingAppleCount : MonoBehaviour
     private void OnDisable()
     {
         Apple.onDestroy -= IncreaseAppleCount;
-        PlayerPrefs.SetInt(_appleScore, _appleCount);
+        PlayerPrefs.SetInt(_appleScoreKey, _appleCount);
     }
 
     private void CheckAppleScore()
     {
-        if (PlayerPrefs.HasKey(_appleScore))
+        if (PlayerPrefs.HasKey(_appleScoreKey))
         {
-            _appleCount = PlayerPrefs.GetInt(_appleScore);
+            _appleCount = PlayerPrefs.GetInt(_appleScoreKey);
         }
         else
         {
             _appleCount = 0;
-            PlayerPrefs.SetInt(_appleScore, _appleCount);
+            PlayerPrefs.SetInt(_appleScoreKey, _appleCount);
         }
 
         _appleCountText.text = _appleCount.ToString();

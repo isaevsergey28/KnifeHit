@@ -16,7 +16,7 @@ public class ActiveKnife : Knife
 
     private readonly float _newColliderOffset = -0.6f;
     private readonly float _newColliderSize = 1.2f;
-    private bool _isNotStuck = true;
+    private bool _isNotHit = true;
     
     private void Start()
     {
@@ -32,11 +32,12 @@ public class ActiveKnife : Knife
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (_isNotStuck)
+        if (_isNotHit)
         {
             if (collision.collider.TryGetComponent(out Log log))
             {
-                _isNotStuck = false;
+                Vibration.VibratePop();
+                _isNotHit = false;
                 _rigidbody.velocity = Vector2.zero;
                 _rigidbody.bodyType = RigidbodyType2D.Kinematic;
                 _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -47,7 +48,9 @@ public class ActiveKnife : Knife
             }
             else if (collision.collider.TryGetComponent(out Knife knife))
             {
-                int fallingForce = 10;
+                Vibration.VibratePop();
+                _isNotHit = false;
+                int fallingForce = 15;
                 Vector2 fallingDirection = transform.position - knife.transform.position;
                 _rigidbody.velocity = fallingDirection * fallingForce;
                 onKnifeHitKnife?.Invoke();

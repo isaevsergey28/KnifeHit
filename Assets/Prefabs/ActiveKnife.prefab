@@ -130,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 2}
+  m_Size: {x: 0.25, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &5504886189541132526
 MonoBehaviour:
@@ -144,4 +144,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b62cb0425f98f46b7d026a9f7b3162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _throwForce: 20
+  _throwForce: 30

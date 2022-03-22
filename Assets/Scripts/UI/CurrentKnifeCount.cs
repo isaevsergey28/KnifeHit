@@ -4,27 +4,29 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class KnifeScore : MonoBehaviour
+public class CurrentKnifeCount : MonoBehaviour
 {
   private TextMeshProUGUI _scoreText;
-  private int _score;
-
+  private int _scoreNumber;
+  private string _knivesCountScoreKey = "KnivesCountScore";
+  
   private void Start()
   {
     ActiveKnife.onKnifeIsStuckInLog += IncrementKnifeScore;
     _scoreText = GetComponent<TextMeshProUGUI>();
-    _score = 0;
-    _scoreText.text = _score.ToString();
+    _scoreNumber = 0;
+    _scoreText.text = _scoreNumber.ToString();
   }
 
   private void OnDisable()
   {
     ActiveKnife.onKnifeIsStuckInLog -= IncrementKnifeScore;
+    PlayerPrefs.SetInt(_knivesCountScoreKey, _scoreNumber);
   }
 
   private void IncrementKnifeScore()
   {
-    _score++;
-    _scoreText.text = _score.ToString();
+    _scoreNumber++;
+    _scoreText.text = _scoreNumber.ToString();
   }
 }

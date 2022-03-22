@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     {
         if (_currentLevelSettings.GetStageKnivesCount() == _allKnives.GetActiveKnives().Count)
         {
+            Vibration.VibratePeek();
             _allKnives.ChangeKnivesSettings(transform);
             _allKnives.ClearKnivesList();
             onVictory?.Invoke();

@@ -21,6 +21,7 @@ public class StageController : MonoBehaviour
 
     private IEnumerator StartFirstStage()
     {
+        GameServicesProvider.instance.GetService<GameManager>().GetCurrentLevelSettings().RandomizeStageKnivesCount();
         yield return null;
         onStartStage?.Invoke();
     }
@@ -33,12 +34,8 @@ public class StageController : MonoBehaviour
 
     private IEnumerator WaitForNextStage()
     {
-        yield return new WaitForSeconds(3f);
-        LoadNextStage();
-    }
-
-    private void LoadNextStage()
-    {
+        GameServicesProvider.instance.GetService<GameManager>().GetCurrentLevelSettings().RandomizeStageKnivesCount();
+        yield return new WaitForSeconds(GameServicesProvider.instance.GetService<GameManager>().GetCurrentLevelSettings().GetWaitTimeBetweenStages());
         onStartStage?.Invoke();
     }
 }

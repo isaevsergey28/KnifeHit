@@ -12,7 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b5e78945e438445a8beb843f53b731, type: 3}
   m_Name: LevelSettings
   m_EditorClassIdentifier: 
-  _stageKnivesCount: 3
+  _logRotationsInfo:
+  - speed: 300
+    duration: 2
+    isSlowDown: 1
+  - speed: -400
+    duration: 5
+    isSlowDown: 1
+  - speed: 200
+    duration: 2
+    isSlowDown: 0
+  - speed: 450
+    duration: 4
+    isSlowDown: 1
+  - speed: -250
+    duration: 2
+    isSlowDown: 0
+  _maxKnivesCount: 6
+  _waitTimeBetweenStages: 2
   _logPrefab: {fileID: 281493637246037160, guid: 48397d6266139a041a1b42dcc28e9ab6, type: 3}
   _logSprites:
   - {fileID: 21300000, guid: 01bb7af739fe20a468d5602b7d3ad2cc, type: 3}
@@ -21,3 +38,5 @@ MonoBehaviour:
   _stuckKnifePrefab: {fileID: 4135034426872898477, guid: dc4d624af93c31b419de38363c3d86dd, type: 3}
   _applePrefab: {fileID: 7943882647848796229, guid: 0c8fc842a430e9649bdc763b8b4f71d3, type: 3}
   _breakingApplePrefab: {fileID: 1162430357496832133, guid: ee54ab9fe48fdb648a5a03de891f028b, type: 3}
+  _appleSpawnChance: 25
+  _knifeSpawnChance: 50

@@ -8,6 +8,5 @@ public class ScreenView : MonoBehaviour
 
     public virtual void Init()
     {
-        Debug.Log(name);
     }
 }
