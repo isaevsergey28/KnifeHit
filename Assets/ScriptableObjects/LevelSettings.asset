@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b5e78945e438445a8beb843f53b731, type: 3}
+  m_Name: LevelSettings
+  m_EditorClassIdentifier: 
+  _stageKnivesCount: 3
+  _logPrefab: {fileID: 281493637246037160, guid: 48397d6266139a041a1b42dcc28e9ab6, type: 3}
+  _logSprites:
+  - {fileID: 21300000, guid: 01bb7af739fe20a468d5602b7d3ad2cc, type: 3}
+  _breakingLogPrefab: {fileID: 2612658068697923900, guid: a0696c8a9b04e9e4c98a739d074f9033, type: 3}
+  _activeKnifePrefab: {fileID: 5504886189541132517, guid: 26367bb5a21ed794c9fd9d7ab147e7d4, type: 3}
+  _stuckKnifePrefab: {fileID: 4135034426872898477, guid: dc4d624af93c31b419de38363c3d86dd, type: 3}
+  _applePrefab: {fileID: 7943882647848796229, guid: 0c8fc842a430e9649bdc763b8b4f71d3, type: 3}
+  _breakingApplePrefab: {fileID: 1162430357496832133, guid: ee54ab9fe48fdb648a5a03de891f028b, type: 3}
