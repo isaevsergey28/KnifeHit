@@ -13,10 +13,10 @@ public class KnivesCountScore : MonoBehaviour
     private void Start()
     {
         _knivesCountScoreText = GetComponent<TextMeshProUGUI>();
-        ShowStageScore();
+        ShowKnivesScore();
     }
 
-    private void ShowStageScore()
+    private void ShowKnivesScore()
     {
         if (PlayerPrefs.HasKey(_knivesCountScoreKey))
         {
