@@ -6,7 +6,17 @@ using UnityEngine;
 public class Apple : MonoBehaviour
 {
     public static Action onDestroy;
-    
+
+    private void Start()
+    {
+        GameServicesProvider.instance.Register(this);
+    }
+
+    private void OnDisable()
+    {
+        GameServicesProvider.instance.Unregister(this);
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.TryGetComponent(out ActiveKnife knife))
@@ -15,7 +25,12 @@ public class Apple : MonoBehaviour
             BreakApple();
         }
     }
-    
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
     private void BreakApple()
     {
         Instantiate(GameServicesProvider.instance.GetService<GameManager>().GetCurrentLevelSettings().GetBreakingApplePrefab(),

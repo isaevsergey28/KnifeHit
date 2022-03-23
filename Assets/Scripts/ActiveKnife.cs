@@ -1,9 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
-using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
@@ -14,15 +10,17 @@ public class ActiveKnife : Knife
     public static Action onKnifeIsStuckInLog;
     public static Action onKnifeHitKnife;
 
+    private ParticleSystem _particleSystem;
     private readonly float _newColliderOffset = -0.6f;
     private readonly float _newColliderSize = 1.2f;
     private bool _isNotHit = true;
     
     private void Start()
     {
+        InputSystem.onClick += MakePush;
         _rigidbody = GetComponent<Rigidbody2D>();
         _boxCollider = GetComponent<BoxCollider2D>();
-        InputSystem.onClick += MakePush;
+        _particleSystem = GetComponent<ParticleSystem>();
     }
 
     private void OnDisable()
@@ -36,7 +34,8 @@ public class ActiveKnife : Knife
         {
             if (collision.collider.TryGetComponent(out Log log))
             {
-                Vibration.VibratePop();
+                Vibration.Vibrate();
+                _particleSystem.Play();
                 _isNotHit = false;
                 _rigidbody.velocity = Vector2.zero;
                 _rigidbody.bodyType = RigidbodyType2D.Kinematic;
@@ -48,7 +47,7 @@ public class ActiveKnife : Knife
             }
             else if (collision.collider.TryGetComponent(out Knife knife))
             {
-                Vibration.VibratePop();
+                Vibration.Vibrate();
                 _isNotHit = false;
                 int fallingForce = 15;
                 Vector2 fallingDirection = transform.position - knife.transform.position;
@@ -57,11 +56,6 @@ public class ActiveKnife : Knife
                 enabled = false;
             }
         }
-    }
-
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject);
     }
     
     private void MakePush()

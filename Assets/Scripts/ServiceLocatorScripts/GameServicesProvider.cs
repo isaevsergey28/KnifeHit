@@ -33,4 +33,9 @@ public class GameServicesProvider : MonoBehaviour
     {
         return _locator.GetService<T>();
     }
+
+    public bool IsServiceContains<T>() where T : MonoBehaviour
+    {
+        return _locator.IsServiceContains<T>();
+    }
 }

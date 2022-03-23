@@ -41,9 +41,8 @@ public class GameManager : MonoBehaviour
     {
         if (_currentLevelSettings.GetStageKnivesCount() == _allKnives.GetActiveKnives().Count)
         {
-            Vibration.VibratePeek();
-            _allKnives.ChangeKnivesSettings(transform);
-            _allKnives.ClearKnivesList();
+            Vibration.Vibrate();
+            SetLogAttributesNewParent();
             onVictory?.Invoke();
         }
     }
@@ -58,5 +57,18 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         UIManager.instance.Show<LoseCanvas>();
+    }
+
+    private void SetLogAttributesNewParent()
+    {
+        _allKnives.ChangeKnivesSettings(transform);
+        _allKnives.ClearKnivesList();
+        if (GameServicesProvider.instance.IsServiceContains<Apple>())
+        {
+            Apple apple = GameServicesProvider.instance.GetService<Apple>();
+            apple.transform.parent = transform;
+            apple.GetComponent<BoxCollider2D>().enabled = false;
+            apple.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        }
     }
 }

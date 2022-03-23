@@ -6,7 +6,7 @@ using UnityEngine;
 public class ServiceLocator<T> : IServiceLocator<T>
 {
     private Dictionary<Type, List<T>> _services { get; }
-
+    
     public ServiceLocator()
     {
         _services = new Dictionary<Type, List<T>>();
@@ -48,6 +48,10 @@ public class ServiceLocator<T> : IServiceLocator<T>
                 var services = _services[type];
                 services.Remove(service);
                 _services[type] = services;
+                if (_services[type].Count == 0)
+                {
+                    _services.Remove(type);
+                }
                 break;
             }
         }
@@ -73,5 +77,11 @@ public class ServiceLocator<T> : IServiceLocator<T>
         }
 
         return (TP) _services[type][0];
+    }
+
+    public bool IsServiceContains<TP>() where TP : T
+    {
+        var type = typeof(TP);
+        return _services.ContainsKey(type);
     }
 }

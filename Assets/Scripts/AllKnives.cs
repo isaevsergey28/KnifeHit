@@ -25,6 +25,7 @@ public class AllKnives : MonoBehaviour
             var knifeBeh = knife.GetComponent<Knife>();
             knifeBeh.enabled = true;
             knifeBeh.SetDynamicPhysics();
+            Destroy(knifeBeh.gameObject, 3f);
         }
     }
     

@@ -35,9 +35,10 @@ public class GameCanvas : ScreenView
         StageController.onStartStage -= IncrementStageNumberText;
         ActiveKnife.onKnifeIsStuckInLog -= IncrementKnifeScore;
         Apple.onDestroy -= IncreaseAppleCount;
-        PlayerPrefs.SetInt(_stageScoreKey, _stageNumber);
-        PlayerPrefs.SetInt(_knivesCountScoreKey, _knivesCount);
-        PlayerPrefs.SetInt(_appleScoreKey, _appleCount);
+        SavePlayerPrefs(_stageScoreKey, _stageNumber);
+        SavePlayerPrefs(_knivesCountScoreKey, _knivesCount);
+        SavePlayerPrefs(_appleScoreKey, _appleCount);
+        UIManager.instance.GetScreen<LoseCanvas>().SetLosePanelValues(_stageNumber, _knivesCount);
     }
 
     private void IncrementStageNumberText()
@@ -71,5 +72,13 @@ public class GameCanvas : ScreenView
     {
         _appleCount++;
         _currentApplesCountText.text = _appleCount.ToString();
+    }
+
+    private void SavePlayerPrefs(string key, int value)
+    {
+        if (PlayerPrefs.GetInt(key) < value)
+        {
+            PlayerPrefs.SetInt(key,value);
+        }
     }
 }

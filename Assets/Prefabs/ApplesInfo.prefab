@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4534188418071079437}
   - component: {fileID: 4534188418071079439}
   - component: {fileID: 4534188418071079438}
-  - component: {fileID: 4534188418071079424}
   m_Layer: 0
   m_Name: AppleCountText
   m_TagString: Untagged
@@ -135,18 +134,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4534188418071079424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4534188418071079436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b13346b519596f4a92e3cb8a72f9de6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4534188418154050598
 GameObject:
   m_ObjectHideFlags: 0

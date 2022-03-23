@@ -9,15 +9,12 @@ public class LoseCanvas : ScreenView
 {
     [SerializeField] private TextMeshProUGUI _currentGameScore;
     
-    private const string _knivesCountScoreKey = "KnivesCountScore";
-    private const string _stageScoreKey = "StageNumberScore";
     public override void Init()
     {
     }
 
-    private void OnEnable()
+    public void SetLosePanelValues(int currentStageNumber, int currentKnivesCount)
     {
-        _currentGameScore.text = "record: \nstage " + " " + PlayerPrefs.GetInt(_stageScoreKey) + 
-                                 "\nscore " + PlayerPrefs.GetInt(_knivesCountScoreKey);
+        _currentGameScore.text = "stage " + currentStageNumber + "\nscore " + currentKnivesCount;
     }
 }

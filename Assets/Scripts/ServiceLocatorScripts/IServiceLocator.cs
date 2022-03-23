@@ -7,4 +7,5 @@ public interface IServiceLocator<T>
     void Unregister<TP>(TP Service) where TP : T;
     List<TP> GetServices<TP>() where TP : T;
     TP GetService<TP>() where TP : T;
+    bool IsServiceContains<TP>() where TP : T;
 }

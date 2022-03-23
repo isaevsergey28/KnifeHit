@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class KnifeSpawner : MonoBehaviour
 {
-   [SerializeField] private Vector2 _spawnPos;
+   [SerializeField] private Vector3 _spawnPos;
 
    private AllKnives _allKnives;
    
