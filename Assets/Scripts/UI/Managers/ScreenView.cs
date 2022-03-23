@@ -9,4 +9,14 @@ public class ScreenView : MonoBehaviour
     public virtual void Init()
     {
     }
+    
+    public virtual void OnShow()
+    {
+        
+    }
+
+    public virtual void OnHide()
+    {
+        
+    }
 }

@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
         ActiveKnife.onKnifeIsStuckInLog += CheckVictory;
         ActiveKnife.onKnifeHitKnife += AnnounceLose;
         _allKnives = GetComponent<AllKnives>();
-        UIManager.instance.Init();
     }
 
     private void OnDisable()
@@ -56,7 +55,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator ShowLoseCanvas()
     {
         yield return new WaitForSeconds(0.5f);
-        UIManager.instance.Show<LoseCanvas>();
+        UIManager.instance.Show<LoseCanvas>().OnShow();
     }
 
     private void SetLogAttributesNewParent()

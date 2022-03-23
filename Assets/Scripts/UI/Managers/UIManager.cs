@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        Init();
     }
 
     public void Init()
@@ -20,8 +21,8 @@ public class UIManager : MonoBehaviour
         for (var i = 0; i < length; i++)
         {
             var screen = screens[i];
+            screen.gameObject.SetActive(true);
             screen.Init();
-
             screen.gameObject.SetActive(screen.showOnInit);
         }
     }
