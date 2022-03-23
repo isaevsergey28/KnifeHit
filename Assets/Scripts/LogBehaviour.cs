@@ -82,8 +82,17 @@ public class LogBehaviour : MonoBehaviour
 
     private void BreakLog()
     {
-        Instantiate(GameServicesProvider.instance.GetService<GameManager>().GetCurrentLevelSettings().GetBreakingLogPrefab(),
-            transform.position, Quaternion.identity);
+        LevelSettings levelSettings = GameServicesProvider.instance.GetService<GameManager>().GetCurrentLevelSettings();
+        if (levelSettings.GetCurrentStage() == CurrentStage.Plain)
+        {
+            Instantiate(levelSettings.GetBreakingLogPrefab(),
+                transform.position, Quaternion.identity);
+        }
+        else if (levelSettings.GetCurrentStage() == CurrentStage.Boss)
+        {
+            Instantiate(levelSettings.GetBreakingBossPrefab(),
+                transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 }

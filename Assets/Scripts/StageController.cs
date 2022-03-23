@@ -11,7 +11,7 @@ public class StageController : MonoBehaviour
     public static Action onEndStage;
 
     private int _stageNumber = 0;
-    private int _spawnBossStageCount = 2;
+    private int _spawnBossStageCount = 5;
     private int _bossesCompleted = 0;
     
     private void Start()

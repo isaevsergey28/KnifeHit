@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+public enum CurrentStage
+{
+    Plain = 0,
+    Boss = 1
+}
+
 [CreateAssetMenu(fileName = "LevelSettings", menuName = "LevelSettings")]
 public class LevelSettings : ScriptableObject
 {
@@ -16,6 +22,7 @@ public class LevelSettings : ScriptableObject
     [SerializeField] private Sprite[] _bossSprites;
     [SerializeField] private Sprite[] _knifeSprites;
     [SerializeField] private GameObject _breakingLogPrefab;
+    [SerializeField] private GameObject _breakingBossPrefab;
     [SerializeField] private GameObject _activeKnifePrefab;
     [SerializeField] private GameObject _stuckKnifePrefab;
     [SerializeField] private GameObject _applePrefab;
@@ -26,7 +33,8 @@ public class LevelSettings : ScriptableObject
     [SerializeField] private int _knifeSpawnChance = 50;
 
     private int _stageKnivesCount;
-
+    private CurrentStage _currentStage;
+    
     public List<LogRotationInfo> GetLogRotationsInfo()
     {
         return _logRotationsInfo;
@@ -52,6 +60,11 @@ public class LevelSettings : ScriptableObject
         return _breakingLogPrefab;
     }
     
+    public GameObject GetBreakingBossPrefab()
+    {
+        return _breakingBossPrefab;
+    }
+    
     public GameObject GetActiveKnifePrefab()
     {
         return _activeKnifePrefab;
@@ -64,11 +77,13 @@ public class LevelSettings : ScriptableObject
     
     public Sprite GetRandomLogSprite()
     {
+        _currentStage = CurrentStage.Plain;
         return _logSprites[Random.Range(0 , _logSprites.Length)];
     }
 
     public Sprite GetRandomBossSprite()
     {
+        _currentStage = CurrentStage.Boss;
         return _bossSprites[Random.Range(0 , _bossSprites.Length)];
     }
     
@@ -100,5 +115,10 @@ public class LevelSettings : ScriptableObject
     public Sprite GetKnifeSprite(int knifeIndex)
     {
         return _knifeSprites[knifeIndex];
+    }
+
+    public CurrentStage GetCurrentStage()
+    {
+        return _currentStage;
     }
 }

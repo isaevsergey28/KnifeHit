@@ -26,6 +26,7 @@ public class GameCanvas : ScreenView
     private void Start()
     {
         StageController.onStartPlainStage += IncrementStageNumberText;
+        StageController.onStartBossFightStage += IncrementStageNumberText;
         ActiveKnife.onKnifeIsStuckInLog += IncrementKnifeScore;
         Apple.onDestroy += IncreaseAppleCount;
         CheckApplesScore();
@@ -34,6 +35,7 @@ public class GameCanvas : ScreenView
     private void OnDisable()
     {
         StageController.onStartPlainStage -= IncrementStageNumberText;
+        StageController.onStartBossFightStage -= IncrementStageNumberText;
         ActiveKnife.onKnifeIsStuckInLog -= IncrementKnifeScore;
         Apple.onDestroy -= IncreaseAppleCount;
         SavePlayerPrefs(_stageScoreKey, _stageNumber);

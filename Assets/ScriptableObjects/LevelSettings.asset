@@ -28,6 +28,18 @@ MonoBehaviour:
   - speed: -250
     duration: 2
     isSlowDown: 0
+  - speed: 100
+    duration: 1
+    isSlowDown: 0
+  - speed: 500
+    duration: 4
+    isSlowDown: 1
+  - speed: -500
+    duration: 4
+    isSlowDown: 1
+  - speed: -230
+    duration: 2
+    isSlowDown: 0
   _maxKnivesCount: 6
   _waitTimeBetweenStages: 2
   _logPrefab: {fileID: 281493637246037160, guid: 48397d6266139a041a1b42dcc28e9ab6, type: 3}
@@ -39,9 +51,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fb3ab3766c86dd84ebb9837ece94e471, type: 3}
   _knifeSprites:
   - {fileID: 21300000, guid: 8770f020b502c504da01130505140bc8, type: 3}
-  - {fileID: 21300000, guid: d27adb8821ea61f4886271039c43cbec, type: 3}
   - {fileID: 21300000, guid: 0e6993e02dde3ec44973c266feaf99bb, type: 3}
+  - {fileID: 21300000, guid: d27adb8821ea61f4886271039c43cbec, type: 3}
   _breakingLogPrefab: {fileID: 2612658068697923900, guid: a0696c8a9b04e9e4c98a739d074f9033, type: 3}
+  _breakingBossPrefab: {fileID: 8073426482931356996, guid: 878bbbedafd342749bb7a9dbfa59a9ef, type: 3}
   _activeKnifePrefab: {fileID: 5504886189541132517, guid: 26367bb5a21ed794c9fd9d7ab147e7d4, type: 3}
   _stuckKnifePrefab: {fileID: 4135034426872898477, guid: dc4d624af93c31b419de38363c3d86dd, type: 3}
   _applePrefab: {fileID: 7943882647848796229, guid: 0c8fc842a430e9649bdc763b8b4f71d3, type: 3}
