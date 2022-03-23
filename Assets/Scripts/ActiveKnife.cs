@@ -34,7 +34,6 @@ public class ActiveKnife : Knife
         {
             if (collision.collider.TryGetComponent(out Log log))
             {
-                Vibration.Vibrate();
                 _particleSystem.Play();
                 _isNotHit = false;
                 _rigidbody.velocity = Vector2.zero;

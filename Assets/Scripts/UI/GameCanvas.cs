@@ -17,14 +17,15 @@ public class GameCanvas : ScreenView
     private int _knivesCount;
     private int _appleCount;
     private int _stageNumber;
-
+    private int _spawnBossStageCount = 5;
+    
     public override void Init()
     {
     }
 
     private void Start()
     {
-        StageController.onStartStage += IncrementStageNumberText;
+        StageController.onStartPlainStage += IncrementStageNumberText;
         ActiveKnife.onKnifeIsStuckInLog += IncrementKnifeScore;
         Apple.onDestroy += IncreaseAppleCount;
         CheckApplesScore();
@@ -32,7 +33,7 @@ public class GameCanvas : ScreenView
 
     private void OnDisable()
     {
-        StageController.onStartStage -= IncrementStageNumberText;
+        StageController.onStartPlainStage -= IncrementStageNumberText;
         ActiveKnife.onKnifeIsStuckInLog -= IncrementKnifeScore;
         Apple.onDestroy -= IncreaseAppleCount;
         SavePlayerPrefs(_stageScoreKey, _stageNumber);
@@ -44,7 +45,14 @@ public class GameCanvas : ScreenView
     private void IncrementStageNumberText()
     {
         _stageNumber++;
-        _currentStageNumberText.text = "stage " + _stageNumber;
+        if (_stageNumber % _spawnBossStageCount == 0)
+        {
+            _currentStageNumberText.text = "Boss Fight";
+        }
+        else
+        {
+            _currentStageNumberText.text = "stage " + _stageNumber;
+        }
     }
 
     private void IncrementKnifeScore()

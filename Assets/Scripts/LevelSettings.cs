@@ -13,6 +13,8 @@ public class LevelSettings : ScriptableObject
     [SerializeField] private int _waitTimeBetweenStages;
     [SerializeField] private GameObject _logPrefab;
     [SerializeField] private Sprite[] _logSprites;
+    [SerializeField] private Sprite[] _bossSprites;
+    [SerializeField] private Sprite[] _knifeSprites;
     [SerializeField] private GameObject _breakingLogPrefab;
     [SerializeField] private GameObject _activeKnifePrefab;
     [SerializeField] private GameObject _stuckKnifePrefab;
@@ -65,6 +67,11 @@ public class LevelSettings : ScriptableObject
         return _logSprites[Random.Range(0 , _logSprites.Length)];
     }
 
+    public Sprite GetRandomBossSprite()
+    {
+        return _bossSprites[Random.Range(0 , _bossSprites.Length)];
+    }
+    
     public GameObject GetApplePrefab()
     {
         return _applePrefab;
@@ -88,5 +95,10 @@ public class LevelSettings : ScriptableObject
     public int GetKnifeSpawnChance()
     {
         return _knifeSpawnChance;
+    }
+    
+    public Sprite GetKnifeSprite(int knifeIndex)
+    {
+        return _knifeSprites[knifeIndex];
     }
 }

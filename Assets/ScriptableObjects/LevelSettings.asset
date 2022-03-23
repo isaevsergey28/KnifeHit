@@ -33,6 +33,14 @@ MonoBehaviour:
   _logPrefab: {fileID: 281493637246037160, guid: 48397d6266139a041a1b42dcc28e9ab6, type: 3}
   _logSprites:
   - {fileID: 21300000, guid: 01bb7af739fe20a468d5602b7d3ad2cc, type: 3}
+  - {fileID: 21300000, guid: 060906015736d754b8d35165b363031c, type: 3}
+  - {fileID: 21300000, guid: cd6a2a64861b2f447a37ecaac6827fa7, type: 3}
+  _bossSprites:
+  - {fileID: 21300000, guid: fb3ab3766c86dd84ebb9837ece94e471, type: 3}
+  _knifeSprites:
+  - {fileID: 21300000, guid: 8770f020b502c504da01130505140bc8, type: 3}
+  - {fileID: 21300000, guid: d27adb8821ea61f4886271039c43cbec, type: 3}
+  - {fileID: 21300000, guid: 0e6993e02dde3ec44973c266feaf99bb, type: 3}
   _breakingLogPrefab: {fileID: 2612658068697923900, guid: a0696c8a9b04e9e4c98a739d074f9033, type: 3}
   _activeKnifePrefab: {fileID: 5504886189541132517, guid: 26367bb5a21ed794c9fd9d7ab147e7d4, type: 3}
   _stuckKnifePrefab: {fileID: 4135034426872898477, guid: dc4d624af93c31b419de38363c3d86dd, type: 3}

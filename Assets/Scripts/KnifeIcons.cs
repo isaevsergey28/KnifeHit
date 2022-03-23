@@ -16,14 +16,16 @@ public class KnifeIcons : MonoBehaviour
    {
       ActiveKnife.onKnifeIsStuckInLog += HideActiveKnifeIcon;
       StageController.onEndStage += ClearKnivesPanel;
-      StageController.onStartStage += SpawnKnifeIcons;
+      StageController.onStartPlainStage += SpawnKnifeIcons;
+      StageController.onStartBossFightStage += SpawnKnifeIcons;
    }
 
    private void OnDisable()
    {
       ActiveKnife.onKnifeIsStuckInLog -= HideActiveKnifeIcon;
       StageController.onEndStage -= ClearKnivesPanel;
-      StageController.onStartStage -= SpawnKnifeIcons;
+      StageController.onStartPlainStage -= SpawnKnifeIcons;
+      StageController.onStartBossFightStage -= SpawnKnifeIcons;
    }
 
    public void SpawnKnifeIcons()
