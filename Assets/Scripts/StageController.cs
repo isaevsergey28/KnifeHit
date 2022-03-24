@@ -11,7 +11,7 @@ public class StageController : MonoBehaviour
     public static Action onEndStage;
 
     private int _stageNumber = 0;
-    private int _spawnBossStageCount = 5;
+    private int _spawnBossStageCount = 2;
     private int _bossesCompleted = 0;
     
     private void Start()
@@ -39,8 +39,12 @@ public class StageController : MonoBehaviour
         if (_stageNumber % _spawnBossStageCount == 0)
         {
             _bossesCompleted++;
+            _bossesCompleted = Mathf.Clamp(_bossesCompleted, 0,
+                GameServicesProvider.instance.GetService<GameManager>().GetCurrentLevelSettings()
+                    .GetKnifeSpritesCount() - 1);
             onEndBossFightStage?.Invoke(_bossesCompleted);
             onEndStage?.Invoke();
+            UIManager.instance.ShowImmediately<GiftCanvas>().OnShow();
         }
         else
         {

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad079b2641bd86499391564985d3878, type: 3}
   m_Name: Boss1
   m_EditorClassIdentifier: 
-  _bossSprite: {fileID: 0}
-  _breakingBossPrefab: {fileID: 0}
+  _bossSprite: {fileID: 21300000, guid: fb3ab3766c86dd84ebb9837ece94e471, type: 3}
+  _breakingBossPrefab: {fileID: 8073426482931356996, guid: 878bbbedafd342749bb7a9dbfa59a9ef, type: 3}

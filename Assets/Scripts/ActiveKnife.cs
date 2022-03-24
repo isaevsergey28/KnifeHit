@@ -14,7 +14,7 @@ public class ActiveKnife : Knife
     private readonly float _newColliderOffset = -0.6f;
     private readonly float _newColliderSize = 1.2f;
     private bool _isNotHit = true;
-    
+
     private void Start()
     {
         InputSystem.onClick += MakePush;

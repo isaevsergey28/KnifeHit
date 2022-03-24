@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b55303f659d6e41b83128d767a5e57, type: 3}
   m_Name: Log1
   m_EditorClassIdentifier: 
-  _logSprite: {fileID: 0}
-  _breakingLogPrefab: {fileID: 0}
+  _logSprite: {fileID: 21300000, guid: 01bb7af739fe20a468d5602b7d3ad2cc, type: 3}
+  _breakingLogPrefab: {fileID: 2612658068697923900, guid: a0696c8a9b04e9e4c98a739d074f9033, type: 3}

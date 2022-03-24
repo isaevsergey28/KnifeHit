@@ -13,85 +13,86 @@ public enum CurrentStage
 [CreateAssetMenu(fileName = "LevelSettings", menuName = "LevelSettings")]
 public class LevelSettings : ScriptableObject
 {
-    
+
     [SerializeField] private List<LogRotationInfo> _logRotationsInfo;
     [SerializeField] private int _maxKnivesCount;
     [SerializeField] private int _waitTimeBetweenStages;
     [SerializeField] private GameObject _logPrefab;
-    [SerializeField] private Sprite[] _logSprites;
-    [SerializeField] private Sprite[] _bossSprites;
     [SerializeField] private Sprite[] _knifeSprites;
-    [SerializeField] private GameObject _breakingLogPrefab;
-    [SerializeField] private GameObject _breakingBossPrefab;
+    [SerializeField] private LogSpritesInfo[] _logSpritesInfo;
+    [SerializeField] private BossSpritesInfo[] _bossesSpritesInfo;
     [SerializeField] private GameObject _activeKnifePrefab;
     [SerializeField] private GameObject _stuckKnifePrefab;
     [SerializeField] private GameObject _applePrefab;
     [SerializeField] private GameObject _breakingApplePrefab;
-    [Space]
-    [Header("Max chance is 100")]
+    [Space] [Header("Max chance is 100")]
     [SerializeField] private int _appleSpawnChance = 25;
     [SerializeField] private int _knifeSpawnChance = 50;
-
+    
     private int _stageKnivesCount;
     private CurrentStage _currentStage;
+    private int _spriteIndex;
+    private int _currentKnifeIndex;
     
     public List<LogRotationInfo> GetLogRotationsInfo()
     {
         return _logRotationsInfo;
     }
-    
+
     public int GetStageKnivesCount()
     {
         return _stageKnivesCount;
     }
-    
+
     public int GetWaitTimeBetweenStages()
     {
         return _waitTimeBetweenStages;
     }
-    
+
     public GameObject GetLogPrefab()
     {
         return _logPrefab;
     }
-    
+
     public GameObject GetBreakingLogPrefab()
     {
-        return _breakingLogPrefab;
+        return _logSpritesInfo[_spriteIndex].GetBreakingLogPrefab();
     }
-    
+
     public GameObject GetBreakingBossPrefab()
     {
-        return _breakingBossPrefab;
+        return _bossesSpritesInfo[_spriteIndex].GetBreakingBossPrefab();
     }
-    
+
     public GameObject GetActiveKnifePrefab()
     {
         return _activeKnifePrefab;
     }
-    
+
     public GameObject GetStuckKnifePrefab()
     {
         return _stuckKnifePrefab;
     }
-    
+
     public Sprite GetRandomLogSprite()
     {
         _currentStage = CurrentStage.Plain;
-        return _logSprites[Random.Range(0 , _logSprites.Length)];
+        _spriteIndex = Random.Range(0, _logSpritesInfo.Length);
+        return _logSpritesInfo[_spriteIndex].GetLogSprite();
     }
 
     public Sprite GetRandomBossSprite()
     {
         _currentStage = CurrentStage.Boss;
-        return _bossSprites[Random.Range(0 , _bossSprites.Length)];
+        _spriteIndex = Random.Range(0, _bossesSpritesInfo.Length);
+        return _bossesSpritesInfo[_spriteIndex].GetBossSprite();
     }
-    
+
     public GameObject GetApplePrefab()
     {
         return _applePrefab;
     }
-    
+
     public GameObject GetBreakingApplePrefab()
     {
         return _breakingApplePrefab;
@@ -106,19 +107,30 @@ public class LevelSettings : ScriptableObject
     {
         return _appleSpawnChance;
     }
-    
+
     public int GetKnifeSpawnChance()
     {
         return _knifeSpawnChance;
     }
-    
+
     public Sprite GetKnifeSprite(int knifeIndex)
     {
-        return _knifeSprites[knifeIndex];
+        _currentKnifeIndex = knifeIndex;
+        return _knifeSprites[_currentKnifeIndex];
     }
 
     public CurrentStage GetCurrentStage()
     {
         return _currentStage;
+    }
+
+    public int GetCurrentKnifeIndex()
+    {
+        return _currentKnifeIndex;
+    }
+
+    public int GetKnifeSpritesCount()
+    {
+        return _knifeSprites.Length;
     }
 }

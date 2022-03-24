@@ -48,6 +48,23 @@ public class UIManager : MonoBehaviour
         return desiredScreen as T;
     }
     
+    public T ShowImmediately<T>() where T : ScreenView
+    {
+        var desiredScreen = default(ScreenView);
+        var length = screens.Length;
+        for (var i = 0; i < length; i++)
+        {
+            var screen = screens[i];
+            if (screen is T)
+            {
+                desiredScreen = screen;
+                screen.gameObject.SetActive(true);
+            }
+        }
+
+        return desiredScreen as T;
+    }
+    
     public T Hide<T>() where T : ScreenView
     {
         var desiredScreen = default(ScreenView);

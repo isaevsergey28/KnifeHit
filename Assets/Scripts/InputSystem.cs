@@ -9,12 +9,18 @@ public class InputSystem : MonoBehaviour
 
     private void Awake()
     {
+        GameServicesProvider.instance.Register(this);
 #if UNITY_EDITOR || UNITY_STANDLONE
         _isMobilePlatform = false;
 #else
           _isMobilePlatform = true;
 #endif
 
+    }
+
+    private void OnDestroy()
+    {
+        GameServicesProvider.instance.Unregister(this);
     }
 
     private void Update()
@@ -28,7 +34,7 @@ public class InputSystem : MonoBehaviour
         }
         else
         {
-            if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+            if (Input.GetMouseButtonDown(0))
             {
                 onClick?.Invoke();
             }

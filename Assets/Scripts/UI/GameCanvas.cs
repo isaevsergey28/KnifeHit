@@ -17,7 +17,7 @@ public class GameCanvas : ScreenView
     private int _knivesCount;
     private int _appleCount;
     private int _stageNumber;
-    private int _spawnBossStageCount = 5;
+    private int _spawnBossStageCount = 2;
     
     public override void Init()
     {
