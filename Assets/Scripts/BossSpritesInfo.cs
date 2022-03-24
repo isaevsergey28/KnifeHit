@@ -1,11 +1,20 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class BossSpritesInfo
+[CreateAssetMenu(fileName = "BossSpritesInfo", menuName = "NewBoss")]
+public class BossSpritesInfo : ScriptableObject
 {
-    public Sprite _bossSprite;
-    public GameObject _breakingBossPrefab;
+    [SerializeField] private Sprite _bossSprite;
+    [SerializeField] private GameObject _breakingBossPrefab;
+
+    public Sprite GetBossSprite()
+    {
+        return _bossSprite;
+    }
+
+    public GameObject GetBreakingBossPrefab()
+    {
+        return _breakingBossPrefab;
+    }
 }

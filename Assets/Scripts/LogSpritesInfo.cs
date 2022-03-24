@@ -1,11 +1,20 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class LogSpritesInfo
+[CreateAssetMenu(fileName = "LogSpritesInfo", menuName = "NewLog")]
+public class LogSpritesInfo : ScriptableObject
 {
-    public Sprite _logSprite;
-    public GameObject _breakingLogPrefab;
+    [SerializeField] private Sprite _logSprite;
+    [SerializeField] private GameObject _breakingLogPrefab;
+
+    public Sprite GetLogSprite()
+    {
+        return _logSprite;
+    }
+
+    public GameObject GetBreakingLogPrefab()
+    {
+        return _breakingLogPrefab;
+    }
 }
