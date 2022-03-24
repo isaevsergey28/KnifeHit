@@ -10,14 +10,16 @@ public class StageController : MonoBehaviour
     public static Action<int> onEndBossFightStage;
     public static Action onEndStage;
 
-    private int _stageNumber = 0;
-    private int _spawnBossStageCount = 2;
-    private int _bossesCompleted = 0;
+    private int _stageNumber;
+    private int _spawnBossStageCount;
+    private int _bossesCompleted;
     
     private void Start()
     {
         GameManager.onVictory += EndCurrentStage;
         StartCoroutine(StartFirstStage());
+        _spawnBossStageCount = GameServicesProvider.instance.GetService<GameManager>().GetCurrentLevelSettings()
+            .GetSpawnBossStageCount();
     }
 
     private void OnDisable()

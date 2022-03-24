@@ -17,7 +17,7 @@ public class GameCanvas : ScreenView
     private int _knivesCount;
     private int _appleCount;
     private int _stageNumber;
-    private int _spawnBossStageCount = 2;
+    private int _spawnBossStageCount;
     
     public override void Init()
     {
@@ -30,6 +30,8 @@ public class GameCanvas : ScreenView
         ActiveKnife.onKnifeIsStuckInLog += IncrementKnifeScore;
         Apple.onDestroy += IncreaseAppleCount;
         CheckApplesScore();
+        _spawnBossStageCount = GameServicesProvider.instance.GetService<GameManager>().GetCurrentLevelSettings()
+            .GetSpawnBossStageCount();
     }
 
     private void OnDisable()

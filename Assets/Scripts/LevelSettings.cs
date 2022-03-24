@@ -28,6 +28,8 @@ public class LevelSettings : ScriptableObject
     [Space] [Header("Max chance is 100")]
     [SerializeField] private int _appleSpawnChance = 25;
     [SerializeField] private int _knifeSpawnChance = 50;
+    [Space]
+    [SerializeField] private int _spawnBossStageCount = 5;
     
     private int _stageKnivesCount;
     private CurrentStage _currentStage;
@@ -132,5 +134,10 @@ public class LevelSettings : ScriptableObject
     public int GetKnifeSpritesCount()
     {
         return _knifeSprites.Length;
+    }
+
+    public int GetSpawnBossStageCount()
+    {
+        return _spawnBossStageCount;
     }
 }

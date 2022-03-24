@@ -6,6 +6,8 @@ using UnityEngine;
 public class ActiveKnife : Knife
 {
     [SerializeField] private float _throwForce;
+    [SerializeField] private AudioSource _knifeHitLogAudio;
+    [SerializeField] private AudioSource _knifeHitKnifeAudio;
 
     public static Action onKnifeIsStuckInLog;
     public static Action onKnifeHitKnife;
@@ -34,6 +36,7 @@ public class ActiveKnife : Knife
         {
             if (collision.collider.TryGetComponent(out Log log))
             {
+                _knifeHitLogAudio.Play();
                 _particleSystem.Play();
                 _isNotHit = false;
                 _rigidbody.velocity = Vector2.zero;
@@ -46,6 +49,7 @@ public class ActiveKnife : Knife
             }
             else if (collision.collider.TryGetComponent(out Knife knife))
             {
+                _knifeHitKnifeAudio.Play();
                 Vibration.Vibrate();
                 _isNotHit = false;
                 int fallingForce = 15;

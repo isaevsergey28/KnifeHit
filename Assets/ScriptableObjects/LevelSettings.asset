@@ -59,3 +59,4 @@ MonoBehaviour:
   _breakingApplePrefab: {fileID: 1162430357496832133, guid: ee54ab9fe48fdb648a5a03de891f028b, type: 3}
   _appleSpawnChance: 25
   _knifeSpawnChance: 50
+  _spawnBossStageCount: 5
